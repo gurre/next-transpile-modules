@@ -271,6 +271,9 @@ module.exports = withTM({
 
 It can happen that when using `next-transpile-modules` with a local package and `npm`, you end up with duplicated dependencies in your final Next.js build. It is important to understand _why_ it happens.
 
+For example with Emotion it will cause a warning in the console.
+`You are loading @emotion/react when it is already loaded. Running multiple instances may cause problems. This can happen if multiple versions are used, or if multiple builds of the same version are used.`
+
 Let's take the following setup: one Next.js app ("Consumer"), and one Styleguide library.
 
 You will probably have `react` as a `peerDependencies` and as a `devDependecy` of the Styleguide. If you use `npm i`, it will create a symlink to your Styleguide package in your "Consumer" `node_modules`.
